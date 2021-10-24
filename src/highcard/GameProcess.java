@@ -38,7 +38,7 @@ public class GameProcess {
 
 			if (kakekin == 9999) {
 				System.out.println("ゲーム終了");
-				System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+");
+				System.out.println("+-+-+-+-+-+-+-+-+-+-+-+");
 				break;
 			}
 			if (kakekin > player.getShojikin()) {

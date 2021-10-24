@@ -3,6 +3,8 @@ package highcard;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PlayerManege {
 	private ArrayList<Player> players = new ArrayList<Player>();
@@ -28,17 +30,27 @@ public class PlayerManege {
 	}
 
 	public void showBestPlayer() {
+		Set<Player> bestList = new HashSet<Player>();
 		if (!players.isEmpty()) {
 			Player bestPlayer = players.get(0);
-			for (Player player : players) {
-				if (bestPlayer.getShojikin() < player.getShojikin()) {
+			for (Player player : players) {	
+				if (bestPlayer.getShojikin() <= player.getShojikin()) {
 					bestPlayer = player;
 				}
 
 			}
+			for(Player player2 : players) {
+				if (bestPlayer.getShojikin() <= player2.getShojikin()) {
+					bestPlayer = player2;
+				}
+				bestList.add(bestPlayer);
+			}
 			System.out.println("総人数      : " + players.size());
 			System.out.println("所持金が一番のユーザー：");
-			showInfo(bestPlayer);
+			for (Player player : bestList) {
+				showInfo(player);
+			}
+			
 		} else {
 			System.out.println("データがありません");
 
@@ -60,7 +72,7 @@ public class PlayerManege {
 				return 0;
 			}
 		});
-		showPlayers();
+		showPlayers(players);
 
 	}
 
@@ -72,7 +84,7 @@ public class PlayerManege {
 				return o1.getPlayerId().compareTo(o2.getPlayerId());
 			}
 		});
-		showPlayers();
+		showPlayers(players);
 
 	}
 
@@ -90,29 +102,38 @@ public class PlayerManege {
 				return 0;
 			}
 		});
-		showPlayers();
+		showPlayers(players);
 
 	}
 
 	public void showPlayerBestKaisu() {
+		Set<Player> bestList = new HashSet<Player>();
 		if (!players.isEmpty()) {
 			Player bestPlayer = players.get(0);
-			for (Player player : players) {
-				if (bestPlayer.getKaisu() < player.getKaisu()) {
+			for (Player player : players) {	
+				if (bestPlayer.getKaisu() <= player.getKaisu()) {
 					bestPlayer = player;
 				}
 
 			}
+			for(Player player2 : players) {
+				if (bestPlayer.getKaisu() <= player2.getKaisu()) {
+					bestPlayer = player2;
+				}
+				bestList.add(bestPlayer);
+			}
 			System.out.println("総人数      : " + players.size());
 			System.out.println("総回数が一番のユーザー：");
-			showInfo(bestPlayer);
+			for (Player player : bestList) {
+				showInfo(player);
+			}
 		} else {
 			System.out.println("データがありません");
 
 		}
 	}
 
-	private void showPlayers() {
+	private void showPlayers(ArrayList<Player> players) {
 		if (!players.isEmpty()) {
 			for (Player player : players) {
 				showInfo(player);

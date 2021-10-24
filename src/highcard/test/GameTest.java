@@ -11,7 +11,7 @@ public class GameTest {
 	public static void main(String[] args) {		
 		ArrayList<Player> list = new ArrayList<Player>();
 		Random rand = new Random();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 50; i++) {
 			Player player = new Player("test num" + rand.nextInt(100));
 			GameProcess gameProcess = new GameProcess(player);
 			for (int j = 0; j < rand.nextInt(20); j++) {

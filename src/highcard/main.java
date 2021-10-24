@@ -26,6 +26,8 @@ public class main {
 				break;
 			case 0:
 				check_loop = false;
+				System.out.println("さよなら、またねー");
+				break;
 			default:
 				System.err.println("正しく入力してください");
 				inp = Input.inputSentaku();

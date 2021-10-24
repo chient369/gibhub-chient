@@ -16,7 +16,7 @@ public class PlayerService {
 		while (check) {
 			System.out.println("ユーザー管理 ");
 			System.out.println("　1. ユーザーリストを見る \n 2. ランクを見る \n 3. 所持金が一番多いユーザーをみる "
-					+ "\n 4. 回数が一番多いユーザーを見る \n 5. 回数の昇順を整列する 0.戻る");
+					+ "\n 4. 回数が一番多いユーザーを見る \n 5. 回数の昇順を整列する \n 0.戻る");
 			int choose = Input.inputChoose();
 			switch (choose) {
 			case 1:
